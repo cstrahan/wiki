@@ -1,5 +1,3 @@
-h1. Vim
-
 h2. Cheat Sheet
 
 |Command|Action|
