@@ -1,0 +1,62 @@
+h2. Windows Development Packages
+
+# Java Runtime
+# JDK with Java EE (i386)
+# JDK with Java EE (x64)
+# Java FX SDK
+# MSBuildShellExtension
+# LockHunter
+# Microsoft Windows Mobile Device Center
+# Virtual Clone Drive
+# WinRAR
+# Notepad2
+# TortoiseSVN
+# Git
+# TortoiseGit
+# TortoiseHG
+# p4merge
+# Paint.NET
+# Maven
+# Ant
+# CTags
+# GVim
+# Emacs
+# Scala
+# Clojure
+# Ruby
+# Factor
+# MODI (from Microsoft Office 2007)
+# Microsoft Office 2007 or 2010
+# Visio
+# Windows SDK
+# SQL Server 2005
+# SQL Server 2005 SP3 (note: SP4 CTP'd 11/2010 - should be released soon)
+# SQL Server 2008 R2
+# Visual Studio 2005
+# Visual Studio 2005 SP1
+# Visual Studio 2005 Service Pack 1 Update for Windows Vista
+# Visual Studio 2008
+# Visual Studio 2008 SP1
+# Visual Studio 2008 SDK 1.1
+# Microsoft SQL Server Compact 3.5 Service Pack 1 and Synchronization Services for ADO.NET version 1.0 Service Pack 1 for Windows Desktop
+# Visual Studio 2010
+# Visual Studio 2010 SDK
+# Windows Phone Developer Tools (XNA Game Studio 4)
+# Expression Blend 3
+# Expression Blend 3 SDK
+# Expression Blend 4
+# Microsoft Expression Blend Software Development Kit (SDK) for .NET 4
+# Microsoft Expression Blend Software Development Kit (SDK) for Silverlight 4
+# GitSCC
+# AnkhSVN
+# NDepend
+# Resharper
+# DirectX SDK
+# RedGate Reflector
+# XNA Game Studio 2
+# XNA Game Studio 3.1
+# Surface SDK
+# Flash Builder Premium (see here)
+# Adobe Creative Suite
+# IntelliJ IDEA
+# Eclipse IDE for Java EE Developers (note: any package would be just fine - this just has most of the crap I'd want already bundled)
