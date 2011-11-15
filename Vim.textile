@@ -1,0 +1,50 @@
+h1. Vim
+
+h2. Visual Studio Integration
+
+(copied from "here":http://vim.wikia.com/wiki/Integrate_gvim_with_Visual_Studio)
+
+If you are someone who prefers Vim and uses MS Visual Studio .NET for development, and you have been struggling with a less than perfect integration of the two, this tip may help you tighten that up. I've been working with the two together since .NET came out and this tip is a compilation of all the tricks and setup I use.
+
+THE KEY: Before you do anything else, do this. goto Tools > External Tools > Add:
+
+```
+Title: &Vim
+Command: C:\Program Files (x86)\Vim\vim73\gvim.exe
+Arguments: --servername VimualStudio --remote-silent +"call cursor($(CurLine),$(CurCol))" $(ItemPath)
+Initial directory: $(SolutionDir)
+```
+
+This will allow you to use the key combination Alt-t-v to open the current file at the current line and cursor in a new vim browser. The browser will start at the directory of that file, so ':e .' will edit the directory of that file. Remove the --servername VimualStudio part if you want to have each Alt-t-v to open a new instance of Vim.
+
+THE SECOND KEY: In order to effectively use the two together and make sure .NET does not complain about its files changing, goto Tools > Options > Environment > Documents and ensure these two options are checked:
+
+* Detect when file is changed outside the environment.
+* Auto-load changes (if not currently modified inside the environment).
+
+CTAGS: This is an obligatory statement, but a lot of MS developers do not know about ctags. Google for it and use it. This enables you to jump to tags, preview function declarations, use tab completion, and ton of things you can't live without. My personal mappings are: map " use C-] to goto a tag and C-[ to come back up the tag stack noremap } " use C-P to preview a tag in a small window For tag completion, there are a TON of options, but I use VimTip102 because it's simple and does the job: 
+
+```vim
+inoremap <Tab> <C-R>=InsertTabWrapper("forward")
+inoremap <s-tab> <C-R>=InsertTabWrapper("backward")
+```
+
+One snag for ctags on MS is that the tag pathnames require the old dos style pathnames. Use the appropriate DIR switches to figure yours out:
+
+```vim
+set tags=./tags,tags,c:/projects/tags,c:/PROGRA~1/MIEEF7~1/tags
+```
+
+If you must use make at the command line ( I don't compile at command line for .NET but i've gotten it working. not sure where this tip was ), use:
+
+```vim
+set autowrite
+setlocal errorformat=\ %#%f(%l)\ :\ %#%t%[A-z]%#\ %m
+setlocal makeprg=devenv\ c:/Projects/MySolution.sln\ -build\ release
+```
+
+Lastly, if you are afraid to leave the IDE because you like Visual Assist's file browser, I'm maintaining a script to emulate that behavior [ProjectBrowse.vim]. It requires the unix find command which can be easily obtained via the cygwin win-unix set of utils.
+
+```vim
+map <a-o> :ProjectBrowse c:\Projects\<cr></cr></a-o>
+```
