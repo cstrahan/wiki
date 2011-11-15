@@ -1,3 +1,9 @@
+h2. Bytecode
+
+Resources:
+
+"http://www.slideshare.net/sawrb/hacking-swf":http://www.slideshare.net/sawrb/hacking-swf
+
 h2. Debuggers
 
 TODO: Find spec on the Flash debugging protocol. I want the option of making my Player provide a standard Flash debugging experience.
