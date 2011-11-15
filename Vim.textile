@@ -1,5 +1,148 @@
 h1. Vim
 
+h2. Cheat Sheet
+
+|Command|Action|
+|:let mapleader = ","|set leader key to ","|
+|Ctrl+O|jump to older locations|
+|Ctrl+I|jump to newer locations|
+|:registers|display content of all registers|
+|"1p|paste from register 1|
+|:read!dir|insert contents of command|
+|Ctrl+W L|move current window to the right|
+|Ctrl+W =|make all windows equal size|
+|Ctrl+W _|maximize window|
+|Ctrl+W +|grow window|
+|Ctrl+W -|shrink window|
+|Ctrl+W <|smaller width|
+|Ctrl+W >|larger width|
+|Ctrl+W +|maximize window|
+|:hide|close current window|
+|:wq|write and quit (hide buffer)|
+|Ex|file explorer|
+|be|buffer explorer (require plugin)|
+|:map \|show mappings starting with \|
+|Ctrl+W _|maximize window|
+|:set linespace=2|set the spacing between lines|
+|CTRL-]|follow help link|
+
+h2. Fugitive.vim
+
+```
+:Gdiff
+Brings up the staged version of the file side by side 
+with the working tree version and use Vim's diff handling 
+capabilities to stage a subset of the file's changes.
+
+:Gedit
+:Gsplit
+:Gvsplit
+:Gtabedit
+View any blob, tree, commit, or tag in the repository
+
+:Gstatus
+Brings up the output of git status.
+Press - to add/reset a file's changes, or p to add/reset --patch that mofo
+
+:Gcommit
+
+:Gmove
+does a git mv on a file and simultaneously renames the buffer
+
+:Gremove
+does a git rm on a file and simultaneously deletes the buffer.
+
+:Gblame
+Press enter on a line to reblame the file as it stood in that commit, 
+or o to open that commit in a split.
+
+:Ggrep
+search the work tree (or any arbitrary commit),
+skipping over that which is not tracked in the repository
+
+:Glog
+loads all previous revisions of a file into the quickfix list
+so you can iterate over them and watch the file evolve!
+
+:Git
+run any arbitrary command.
+
+
+Add %{fugitive#statusline()} to 'statusline' to get an indicator 
+with the current branch in your statusline.
+```
+
+h2. Surround.vim
+
+```
+(| is the position of cursor in these examples)
+
+OVERVIEW
+========
+
+Normal mode
+-----------
+ds  - delete a surrounding
+cs  - change a surrounding
+ys  - add a surrounding
+yS  - add a surrounding and place the surrounded text on a new line + indent it
+yss - add a surrounding to the whole line
+ySs - add a surrounding to the whole line, place it on a new line + indent it
+ySS - same as ySs
+
+Visual mode
+-----------
+s   - in visual mode, add a surrounding
+S   - in visual mode, add a surrounding but place text on new line + indent it
+
+Insert mode
+-----------
+<CTRL-s> - in insert mode, add a surrounding
+<CTRL-s><CTRL-s> - in insert mode, add a new line + surrounding + indent
+<CTRL-g>s - same as <CTRL-s>
+<CTRL-g>S - same as <CTRL-s><CTRL-s>
+
+
+EXAMPLES
+========
+
+Text              Command    New Text
+---------------   -------    -----------
+'Hello W|orld'    ds'        Hello World
+(12|3+4*56)/2     ds(        123+4*56/2
+<div>fo|o</div>   dst        foo
+
+
+Text              Command    New Text
+---------------   -------    -----------
+"Hello |world!"   cs"'       'Hello world!'
+"Hello |world!"   cs"<q>     <q>Hello world!</q>
+(123+4|56)/2      cs)]       [123+456]/2
+(123+4|56)/2      cs)[       [ 123+456 ]/2
+<div>foo|</div>   cst<p>     <p>foo</p>
+fo|o!             csw'       'foo'!
+fo|o!             csW'       'foo!'
+
+
+Text              Command      New Text
+---------------   -------      -----------
+Hello w|orld!     ysiw)        Hello (world)!
+Hello w|orld!     csw)         Hello (world)!
+fo|o              ysiwt<html>  <html>foo</html>
+foo quu|x baz     yss"         "foo quux baz"
+foo quu|x baz     ySS"         "
+                                   foo quux baz
+                               "
+
+(insert mode)
+Command                  New Text
+-------                  ------------
+<CTRL-s>"                ""
+<CTRL-s><CTRL-s><html>   <html>
+                             |
+                         </html>
+```
+
 h2. Visual Studio Integration
 
 (copied from "here":http://vim.wikia.com/wiki/Integrate_gvim_with_Visual_Studio)
