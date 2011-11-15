@@ -1,0 +1,2 @@
+Resources:
+* "Language Spec":http://research.microsoft.com/en-us/um/cambridge/projects/fsharp/manual/spec.html
