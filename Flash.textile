@@ -1,0 +1,70 @@
+h2. Debuggers
+
+TODO: Find spec on the Flash debugging protocol. I want the option of making my Player provide a standard Flash debugging experience.
+
+Open source debuggers:
+* "http://demonsterdebugger.com/":http://demonsterdebugger.com/
+* "http://osflash.org/ofd":http://osflash.org/ofd
+* "http://code.google.com/p/flash-debugger/":http://code.google.com/p/flash-debugger/
+* "http://arthropod.stopp.se/":http://arthropod.stopp.se/
+
+h2. Dynamic Binding
+
+* "flash.utils.Proxy":http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/utils/Proxy.html - A base class for implementing a dynamic proxy.
+* "Object.__resolve":http://help.adobe.com/en_US/AS2LCR/Flash_10.0/help.html?content=00001431.html - Removed since AS3 (replaced with flash.utils.Proxy).
+
+ActionScript allows variables to participate in dynamic binding if the variable's class is dynamic. Note, however, that a class must be explicitly marked dynamic; subclasses do not inherit the dynamism of their base class. Because a subclass of a given dynamic class may or may not be dynamic, this can result in a ReferenceError at runtime when a variable is typed as a dynamic base class but its runtime type is one of its non-dynamic subclasses:
+
+```as3
+// A.as
+package
+{
+    public dynamic class A
+    {
+        public function A()
+        {
+        }
+    }
+}
+
+// B.as
+package
+{
+    public class B extends A
+    {
+        public function B()
+        {
+        }
+    }
+}
+
+// Sandbox.as
+package
+{
+    import flash.display.Sprite;
+    
+    public class Sandbox extends Sprite
+    {
+        public function Sandbox()
+        {
+            // Note that A is dynamic, while B is not.
+            // Because variable 'foo' is staticly typed as the dynamic class A,
+            // the variable may participate in dynamic binding.
+            // In this particular case, the binding will fail at runtime,
+            // as foo is bound to a non-dynamic object.
+            //
+            // One might think that the compiler *could* prevent this,
+            // which is true; however, this would be inconsistent
+            // behaviour, as the compiler can't always determine
+            // at compile-time that a non-dynamic subclass of A (in this case, B)
+            // will be bound to a given variable.
+            // This is why the compiler does not try perform such static analysis.
+            var foo:A = new B();
+            foo.bar = "hello";
+            
+            // ReferenceError: Error #1056: Cannot create property bar on B.
+            //     at Sandbox()[C:\source\Sandbox\src\Sandbox.as:23]
+        }
+    }
+}
+```
