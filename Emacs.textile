@@ -1,0 +1,37 @@
+h2. emacs
+
+h3. server-start on Windows
+
+Emacs 23 has a problem in server-ensure-safe-dir, in lisp/server.el. You'll need to comment out the following two lines:
+
+```scheme
+(unless (eql uid (user-uid)) ; is the dir ours?
+  (throw :safe nil))
+```
+
+h2. Visual Studio Integration
+
+Note: This assumes you have an emacs "server running":http://www.gnu.org/software/emacs/manual/html_node/emacs/Emacs-Server.html#Emacs-Server.
+
+Go to Tools > External Tools > Add:
+
+```
+Title: &Emacs
+Command: C:\applications\emacs\bin\emacsclientw.exe
+Arguments: --no-wait +$(CurLine):$(CurCol) $(ItemDir)$(ItemFileName)$(ItemExt)
+Initial directory:
+```
+
+h2. Resources
+
+* "GNU Emacs Manual":http://www.gnu.org/software/emacs/manual/
+* "Mastering Emacs":http://www.masteringemacs.org/
+* "A Tutorial Introduction to GNU Emacs":http://www2.lib.uchicago.edu/keith/tcl-course/emacs-tutorial.html
+* "A Guided Tour of Emacs":http://www.gnu.org/software/emacs/tour/
+* "Stanford Emacs Tutorial":http://cmgm.stanford.edu/classes/unix/emacs.html
+* "Writing GNU Emacs Extensions (PDF)":http://www.emacs.uniyar.ac.ru/doc/O'Reilly_Emacs/Writing%20GNU%20Emacs%20Extensions.PDF
+* "Learning GNU Emacs 3rd Edition (PDF)":http://sharefile-fengjun.googlecode.com/files/Learning_GNU_Emacs_3rd_Edition.pdf
+
+h2. Cheat Sheet
+
+* "Command List":http://lpn.rnbhq.org/tools/xemacs/emacs_ref.html
