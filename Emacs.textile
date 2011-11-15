@@ -1,6 +1,4 @@
-h2. emacs
-
-h3. server-start on Windows
+h2. server-start on Windows
 
 Emacs 23 has a problem in server-ensure-safe-dir, in lisp/server.el. You'll need to comment out the following two lines:
 
