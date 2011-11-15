@@ -56,7 +56,7 @@ h2. Windows Development Packages
 # XNA Game Studio 2
 # XNA Game Studio 3.1
 # Surface SDK
-# Flash Builder Premium (see here)
+# Flash Builder Premium (see "here":http://kb2.adobe.com/cps/839/cpsid_83941.html)
 # Adobe Creative Suite
 # IntelliJ IDEA
 # Eclipse IDE for Java EE Developers (note: any package would be just fine - this just has most of the crap I'd want already bundled)
