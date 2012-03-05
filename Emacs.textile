@@ -1,3 +1,98 @@
+h2. Cheat Sheet
+
+|Key sequence          |Result                                            |
+|C-h t                 |tutorial                                          |
+|C-x C-c               |end session                                       |
+|C-g                   |quit partially entered command                    |
+|C-v                   |next screen                                       |
+|M-v                   |previous screen                                   |
+|C-l                   |clear screen (set line to center/top/bottom)      |
+|C-a                   |beginning of line                                 |
+|C-e                   |end of line                                       |
+|M-a                   |beginning of sentence                             |
+|M-e                   |end of sentence                                   |
+|M-&lt;                |beginning of text                                 |
+|M-&gt;                |end of text                                       |
+|C-u                   |numeric prefix                                    |
+|C-x 1                 |one window                                        |
+|&lt;Delback&gt;       |delete previous char                              |
+|C-d                   |delete previous char                              |
+|M-&lt;Delback&gt;     |delete previous word                              |
+|M-d                   |delete next word                                  |
+|C-k                   |kill to end of line                               |
+|M-k                   |kill to end of sentence                           |
+|C-&lt;SPC&gt;         |set mark                                          |
+|C-w                   |kill region                                       |
+|C-y                   |yank                                              |
+|M-y                   |next earliest kill                                |
+|C-x C-f               |find file                                         |
+|C-x C-s               |save file                                         |
+|C-x C-b               |buffer list                                       |
+|C-x b                 |switch buffer                                     |
+|C-x s                 |save some buffers                                 |
+|M-x recover-file      |recover from autosave                             |
+|C-h m                 |major mode documentation                          |
+|C-s                   |search forward                                    |
+|C-r                   |search backward                                   |
+|C-x 2                 |split window horizontally                         |
+|C-x 3                 |split window vertically                           |
+|C-M-v                 |scroll bottom window                              |
+|C-x o                 |switch to other window                            |
+|C-x 4 C-f             |split horizontally open file                      |
+|C-x 0                 |close window                                      |
+|M-x make-frame        |open new frame                                    |
+|M-x delete-frame      |close frame                                       |
+|C-h c                 |describe key sequence                             |
+|C-h ?                 |help                                              |
+|C-h k                 |more info on command                              |
+|C-h v                 |documentation for variables                       |
+|C-h a                 |command appropos                                  |
+|C-h i                 |read included manuals (type ? for tour)           |
+|M-w                   |save region                                       |
+|C-c q                 |join lines                                        |
+|C-c f                 |find file in project                              |
+|C-h C-h               |help for the help interface                       |
+|C-+                   |text scale increase                               |
+|C--                   |text scale decrease                               |
+|C-S-&lt;Delback&gt;   |kill whole line                                   |
+|S-{down,left,up,right}|move to window                                    |
+|C-x C-+               |transpose lines                                   |
+|C-x C-q               |toggle read only                                  |
+|C-x &lt;TAB&gt;       |imenu                                             |
+|C-x &lt;RET&gt;       |shell                                             |
+|C-f                   |(in ido mode) disable ido-mode                    |
+|C-j                   |(in ido mode) force given file name               |
+|C-x +                 |balance windows                                   |
+|C-x =                 |what cursor position                              |
+|C-x d                 |dired                                             |
+|C-x m                 |eshell                                            |
+|C-x `                 |next error                                        |
+|C-x C-+               |increase text scale                               |
+|C-x C-=               |decrease text scale                               |
+|C-x C--               |decrease text scale                               |
+|C-x C-0               |default text scale                                |
+|M-x rename-buffer     |rename buffer                                     |
+|C-x k                 |kills specified buffer                            |
+|M-x kill-some-buffers |kill buffers one-by-one                           |
+|M-x clean-buffer-list |kill unedited buffers                             |
+|C-x &lt;Left&gt;      |previous buffer                                   |
+|C-x &lt;Right&gt;     |next buffer                                       |
+|M-&lt;TAB&gt;         |complete symbol                                   |
+|M-&lt;SPC&gt;         |just-one-space                                    |
+|M-g M-g               |go to line #                                      |
+|M-\                   |delete spcs around point (delete-horizontal-space)|
+|M-^                   |join lines (like C-c q, but join current to top)  |
+
+h2. Buffer List Bindings
+
+|Key sequence|Result                                       |
+|d           |request to delete buffer, move down          |
+|C-d         |same as above, but move up                   |
+|s           |request to save                              |
+|x           |perform requested operations                 |
+|u           |remove requested ops                         |
+|&lt;DEL&gt;       |move to previous line and remove any requests|
+
 h2. server-start on Windows
 
 Emacs 23 has a problem in server-ensure-safe-dir, in lisp/server.el. You'll need to comment out the following two lines:
@@ -11,7 +106,7 @@ h2. Visual Studio Integration
 
 Note: This assumes you have an emacs "server running":http://www.gnu.org/software/emacs/manual/html_node/emacs/Emacs-Server.html#Emacs-Server.
 
-Go to Tools > External Tools > Add:
+Go to Tools &gt; External Tools &gt; Add:
 
 ```
 Title: &Emacs
